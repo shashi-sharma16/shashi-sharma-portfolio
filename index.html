@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="light">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="Portfolio of Shashi Sharma, an aspiring software and data professional: Python projects, internships, certificates and resume.">
 <style>:root{color-scheme:light}img{max-width:100%}[hidden]{display:none!important}a.btn{text-decoration:none}</style>
@@ -18,15 +19,6 @@
   --font-display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
   --font-body:'Karla','Segoe UI',system-ui,sans-serif;
   --font-hand:'Caveat','Segoe Print','Bradley Hand',cursive;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#141A2E; --grid:rgba(140,165,240,.10); --ink:#ECEFF8; --muted:#A3ACC8; --line:#37405F;
-    --hl:rgba(255,231,106,.32); --pink:#FF86B3; --teal:#4FD1C0; --blue:#8FA9FF;
-    --paper:#1D2540; --tape:rgba(255,231,106,.45); --note1:#4A4420; --note2:#4A2A3A;
-    --shadow:0 6px 18px rgba(0,0,0,.4);
-    color-scheme:dark;
-  }
 }
 :root[data-theme="dark"]{
   --bg:#141A2E; --grid:rgba(140,165,240,.10); --ink:#ECEFF8; --muted:#A3ACC8; --line:#37405F;
@@ -405,13 +397,12 @@ footer{margin-top:64px;color:var(--muted);font-size:14.5px}
   function isDark(){
     var a=root.getAttribute('data-theme');
     if(a) return a==='dark';
-    return !!(window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
+    return false;
   }
   function label(){ if(!tb) return; var m=isDark()?'light':'dark'; tb.setAttribute('aria-label','Pull the cord to switch to '+m+' mode'); tb.title='Pull to switch to '+m+' mode'; }
   if(tb){
     tb.addEventListener('click',function(){ root.setAttribute('data-theme',isDark()?'light':'dark'); label(); tb.classList.add('pulled'); setTimeout(function(){ tb.classList.remove('pulled'); },190); });
     label();
-    if(window.matchMedia){ try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',label); }catch(e){} }
   }
 
   /* image lightbox */
